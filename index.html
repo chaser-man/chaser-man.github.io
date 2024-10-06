@@ -1,3 +1,79 @@
-<a href="https://chaser-man.github.io/crawler">spider and bats halloween project</a>
-<br>
-<a href="https://chaser-man.github.io/funGame">magic moving box (first major project, 7th grade)</a>
+"use client"
+
+import { useEffect, useState } from 'react'
+
+export default function Component() {
+  const [mounted, setMounted] = useState(false)
+
+  useEffect(() => {
+    setMounted(true)
+  }, [])
+
+  return (
+    <div className="min-h-screen flex items-center justify-center bg-gray-100">
+      <div 
+        className={`bg-white rounded-lg shadow-lg p-8 text-center opacity-0 translate-y-full ${
+          mounted ? 'animate-slide-up' : ''
+        }`}
+      >
+        <h1 className={`text-3xl font-bold mb-6 text-gray-800 ${
+          mounted ? 'animate-fade-in' : 'opacity-0'
+        }`}>Welcome to Chase's Games</h1>
+        <div className="space-y-4">
+          <a
+            href="https://chaser-man.github.io/funGame"
+            className={`block w-full py-2 px-4 bg-blue-500 text-white font-semibold rounded-md hover:bg-blue-600 transition-colors duration-300 opacity-0 ${
+              mounted ? 'animate-fade-in-delayed-1' : ''
+            }`}
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            Play Magic Moving Box (Archived)
+          </a>
+          <a
+            href="https://chaser-man.github.io/crawler"
+            className={`block w-full py-2 px-4 bg-orange-500 text-white font-semibold rounded-md hover:bg-orange-600 transition-colors duration-300 opacity-0 ${
+              mounted ? 'animate-fade-in-delayed-2' : ''
+            }`}
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            Play Halloween Special
+          </a>
+        </div>
+      </div>
+      <style jsx>{`
+        @keyframes slideUp {
+          from {
+            opacity: 0;
+            transform: translateY(100%);
+          }
+          to {
+            opacity: 1;
+            transform: translateY(0);
+          }
+        }
+        @keyframes fadeIn {
+          from {
+            opacity: 0;
+          }
+          to {
+            opacity: 1;
+          }
+        }
+        .animate-slide-up {
+          animation: slideUp 0.8s ease-out forwards;
+        }
+        .animate-fade-in {
+          animation: fadeIn 0.5s ease-out 0.8s forwards;
+        }
+        .animate-fade-in-delayed-1 {
+          animation: fadeIn 0.5s ease-out 1.3s forwards;
+        }
+        .animate-fade-in-delayed-2 {
+          animation: fadeIn 0.5s ease-out 1.6s forwards;
+        }
+      `}</style>
+    </div>
+  )
+}
