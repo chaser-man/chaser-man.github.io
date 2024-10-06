@@ -24,17 +24,21 @@
             opacity: 0;
             transform: translateY(100%);
             animation: slideUp 0.8s ease-out forwards;
+            width: 100%;
+            max-width: 300px;
+            box-sizing: border-box;
         }
         h1 {
             color: #333;
             margin-bottom: 1.5rem;
             opacity: 0;
             animation: fadeIn 0.5s ease-out 0.8s forwards;
+            font-size: 1.5rem;
         }
         .game-link {
-            display: inline-block;
+            display: block;
             width: 100%;
-            padding: 0.8rem 1.5rem;
+            padding: 0.8rem 1rem;
             margin-bottom: 1rem;
             text-decoration: none;
             color: white;
@@ -42,6 +46,7 @@
             border-radius: 4px;
             transition: background-color 0.3s ease;
             opacity: 0;
+            box-sizing: border-box;
         }
         .game-link:first-of-type {
             background-color: #4CAF50;
@@ -73,6 +78,17 @@
             }
             to {
                 opacity: 1;
+            }
+        }
+        @media (max-width: 320px) {
+            .container {
+                padding: 1.5rem;
+            }
+            h1 {
+                font-size: 1.2rem;
+            }
+            .game-link {
+                padding: 0.6rem 0.8rem;
             }
         }
     </style>
